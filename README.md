@@ -39,6 +39,7 @@ churn_pipeline/
 │
 ├── requirements.txt           # Explicit python library dependencies
 └── README.md                  # Project documentation
+```
 
 💻 Tech Stack & Tooling
 Core ML: Python, Pandas, Scikit-Learn
