@@ -1,0 +1,13 @@
+data:
+  raw_data_path: "data/raw_customer_data.csv"
+  inference_data_path: "data/daily_inference_data.csv"
+  output_predictions_path: "data/predictions.csv"
+
+model:
+  model_path: "data/churn_model.pkl"
+  random_state: 42
+  n_estimators: 100
+  test_size: 0.2
+
+validation:
+  expected_columns: ["customer_id", "tenure_months", "monthly_charges", "total_charges"]

@@ -1,0 +1,7 @@
+.venv/
+.zen/
+__pycache__/
+.zenml/
+mlruns/
+mlflow.db
+data/predictions.csv
