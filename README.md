@@ -1,9 +1,14 @@
+ملف الـ `README.md` ده متظبط ومكتوب بصيغة الـ **Markdown** النظيفة عشان يظهر على بروفايلك في GitHub بأفضل شكل ممكن. تم تعديل الفواصل، وإضافة علامات التنسيق للقوائم والأكواد، وضبط المحاذاة عشان القراءة تبان احترافية ومريحة لأي مهندس يفتح الـ Repository.
+
+انسخ الكود اللي في المربع ده بالكامل وحطه جوه ملف `README.md` عندك:
+
+```markdown
 # 🚀 End-to-End Batch Churn Scoring Pipeline with Data Validation & Tracking
 
-An enterprise-grade, production-ready MLOps pipeline built to solve the customer churn forecasting problem for SaaS businesses. 
-This project transitions away from unstable Jupyter Notebooks into an automated, structured, and monitored machine learning architecture.
+An enterprise-grade, production-ready MLOps pipeline built to solve the customer churn forecasting problem for SaaS businesses. This project transitions away from unstable Jupyter Notebooks into an automated, structured, and monitored machine learning architecture.
 
-Developed by: **Eng. Ahmed Akram Amer** Status: **Production Ready (Local Stack)**
+**Developed by:** Eng. Ahmed Akram Amer  
+**Status:** Production Ready (Local Stack)
 
 ---
 
@@ -28,8 +33,8 @@ churn_pipeline/
 ├── data/                      # Data storage layer (Mock customer & prediction files)
 │   ├── raw_customer_data.csv
 │   ├── daily_inference_data.csv
-│   └── predictions.csv
-    └── churn_model.pkl
+│   ├── predictions.csv
+│   └── churn_model.pkl
 │
 ├── src/                       # Production Source Code
 │   ├── data_validation.py     # Schema and boundary integrity verification
@@ -39,29 +44,38 @@ churn_pipeline/
 │
 ├── requirements.txt           # Explicit python library dependencies
 └── README.md                  # Project documentation
+
 ```
 
-💻 Tech Stack & Tooling
-Core ML: Python, Pandas, Scikit-Learn
+---
 
-Configuration Management: PyYAML
+## 💻 Tech Stack & Tooling
 
-Pipeline Orchestration: ZenML
+* **Core ML:** Python, Pandas, Scikit-Learn
+* **Configuration Management:** PyYAML
+* **Pipeline Orchestration:** ZenML
+* **Experiment Tracking & Model Registry:** MLflow (v3.13+)
 
-Experiment Tracking & Model Registry: MLflow (v3.13+)
+---
 
-🚀 How to Run and Operate the System
-1. Environment Setup
+## 🚀 How to Run and Operate the System
+
+### 1. Environment Setup
+
 Clone the repository, create a virtual environment, and install the production dependencies:
 
-Bash
+```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 pip install -r requirements.txt
-2. ZenML Stack Initialization
+
+```
+
+### 2. ZenML Stack Initialization
+
 Register and set up the customized MLOps backend tracking stack:
 
-Bash
+```bash
 # Initialize ZenML
 zenml init
 
@@ -73,29 +87,46 @@ zenml experiment-tracker register mlflow_tracker --flavor=mlflow
 zenml stack register mlflow_stack -a default -o default -e mlflow_tracker
 zenml stack set mlflow_stack
 
-3. Execution (Running the Pipeline)
+```
+
+### 3. Execution (Running the Pipeline)
+
 Set the Windows tracking environment fallback variable, then invoke the pipeline workflow:
 
-PowerShell
+```powershell
 # On Windows PowerShell
 $env:MLFLOW_ALLOW_FILE_STORE="true"
 
 # Execute the pipeline
 python -m src.pipeline
-4. Accessing the Monitoring Dashboards
-To inspect the Pipeline DAG Execution Graph (ZenML):
 
-Bash
+```
+
+### 4. Accessing the Monitoring Dashboards
+
+* **To inspect the Pipeline DAG Execution Graph (ZenML):**
+
+```bash
 zenml login --local --blocking
-Open http://127.0.0.1:8237 in your browser.
 
-To inspect the Experiment Performance Metrics & Registered Models (MLflow):
+```
 
-Bash
+Open `http://127.0.0.1:8237` in your browser.
+
+* **To inspect the Experiment Performance Metrics & Registered Models (MLflow):**
+
+```bash
 mlflow ui --port 5000
-Open http://127.0.0.1:5000 and navigate to the Experiments tab.
 
-🎯 Verification (Done When?)
-Fail-Fast Verification: Mutating or breaking column constraints inside daily_inference_data.csv instantly halts the execution at the validation gate, blocking bad models or corrupted inference output.
+```
 
-Reproducibility: Identical pipeline configurations in config.yaml guarantee matching model metrics (accuracy: 0.79, f1_score: 0.125) tracked losslessly across historical runs.
+Open `http://127.0.0.1:5000` and navigate to the **Experiments** tab.
+
+---
+
+## 🎯 Verification (Done When?)
+
+* **Fail-Fast Verification**: Mutating or breaking column constraints inside `daily_inference_data.csv` instantly halts the execution at the validation gate, blocking bad models or corrupted inference output.
+* **Reproducibility**: Identical pipeline configurations in `config.yaml` guarantee matching model metrics (`accuracy: 0.79`, `f1_score: 0.125`) tracked losslessly across historical runs.
+
+```
