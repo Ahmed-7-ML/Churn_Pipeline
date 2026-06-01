@@ -1,8 +1,3 @@
-ملف الـ `README.md` ده متظبط ومكتوب بصيغة الـ **Markdown** النظيفة عشان يظهر على بروفايلك في GitHub بأفضل شكل ممكن. تم تعديل الفواصل، وإضافة علامات التنسيق للقوائم والأكواد، وضبط المحاذاة عشان القراءة تبان احترافية ومريحة لأي مهندس يفتح الـ Repository.
-
-انسخ الكود اللي في المربع ده بالكامل وحطه جوه ملف `README.md` عندك:
-
-```markdown
 # 🚀 End-to-End Batch Churn Scoring Pipeline with Data Validation & Tracking
 
 An enterprise-grade, production-ready MLOps pipeline built to solve the customer churn forecasting problem for SaaS businesses. This project transitions away from unstable Jupyter Notebooks into an automated, structured, and monitored machine learning architecture.
@@ -128,5 +123,3 @@ Open `http://127.0.0.1:5000` and navigate to the **Experiments** tab.
 
 * **Fail-Fast Verification**: Mutating or breaking column constraints inside `daily_inference_data.csv` instantly halts the execution at the validation gate, blocking bad models or corrupted inference output.
 * **Reproducibility**: Identical pipeline configurations in `config.yaml` guarantee matching model metrics (`accuracy: 0.79`, `f1_score: 0.125`) tracked losslessly across historical runs.
-
-```
